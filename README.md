@@ -29,9 +29,17 @@ Implement an User Authentication System in order to access the jokes from the Jo
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 1. What is the purpose of using _sessions_?
-1. What does bcrypt do to help us store passwords in a secure manner.
-1. What does bcrypt do to slow down attackers?
-1. What are the three parts of the JSON Web Token?
+A session is an object that holds useful informations that we wish to preserve on both the browser and database, that can be then passed with the header to identify a user by, upon each request the server verifies the information that it holds with the information sent with the header to check if they match and garantees access to extra resource, etc.. 
+Session can be identified by a unique id.
+
+2. What does bcrypt do to help us store passwords in a secure manner.
+Bcrypt uses an algorithm that makes it easier for us to hash and encrypt password so they are not stored in plain text within the server, also it adds a salt to the hashing process making each hashed password unique, therefore making it harder for attackers who gets access to the server/database to be able to steal valuable information from users.
+
+3. What does bcrypt do to slow down attackers?
+It uses a function that slows down the process of hashing a password so to counter computer with more gpu and cpu power that can compute a very large number of hashes per second, making attack like rainbow tables take large amount of time so attackers are more easily discouraged, also this type of function is adaptive and scalable, which means that can make the process even longer in the event of even stronger computers/technologies.
+
+4. What are the three parts of the JSON Web Token?
+A JWT is mainly composed by three parts, the header in which contains information about the type of algorithm used for the hashing and token, then a payload with all the relevant information used by the server to identify the user, like user id and token expiration, althou sensible information should be never stored within the payload, and lastly the signature which is a hashed header, payload, and secret which makes the stateless token secure. 
 
 ## Project Set Up
 
